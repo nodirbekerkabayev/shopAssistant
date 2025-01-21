@@ -2,4 +2,4 @@
 
 use Controller\UserController;
 use src\Router;
-Router::post('/login', [UserController::class, 'login']);
+Router::post('/api/login', [UserController::class, 'login']);
