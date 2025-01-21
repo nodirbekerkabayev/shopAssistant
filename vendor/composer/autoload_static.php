@@ -13,6 +13,14 @@ class ComposerStaticInit8336ba5fdc5dd93c1ac510a453f3a630
     );
 
     public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'src\\' => 4,
+        ),
+        'T' => 
+        array (
+            'Traits\\' => 7,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -23,6 +31,10 @@ class ComposerStaticInit8336ba5fdc5dd93c1ac510a453f3a630
         array (
             'PhpOption\\' => 10,
         ),
+        'M' => 
+        array (
+            'Model\\' => 6,
+        ),
         'G' => 
         array (
             'GrahamCampbell\\ResultType\\' => 26,
@@ -31,9 +43,21 @@ class ComposerStaticInit8336ba5fdc5dd93c1ac510a453f3a630
         array (
             'Dotenv\\' => 7,
         ),
+        'C' => 
+        array (
+            'Controller\\' => 11,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'src\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Traits\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Traits',
+        ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
@@ -50,6 +74,10 @@ class ComposerStaticInit8336ba5fdc5dd93c1ac510a453f3a630
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
+        'Model\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Model',
+        ),
         'GrahamCampbell\\ResultType\\' => 
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
@@ -57,6 +85,10 @@ class ComposerStaticInit8336ba5fdc5dd93c1ac510a453f3a630
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
+        'Controller\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Controller',
         ),
     );
 

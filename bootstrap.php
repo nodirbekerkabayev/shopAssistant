@@ -7,6 +7,7 @@ error_reporting(E_ALL);
 date_default_timezone_set('Asia/Tashkent');
 
 require __DIR__ . '/vendor/autoload.php';
+require 'helpers.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
