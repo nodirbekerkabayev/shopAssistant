@@ -10,6 +10,11 @@ class UserController
 {
     use Validator;
 
+    public function get()
+    {
+        return 123;
+    }
+
     #[NoReturn] public function login(): void
     {
         $userData = $this->validate([
