@@ -4,17 +4,16 @@ namespace Controller;
 
 use JetBrains\PhpStorm\NoReturn;
 use Model\User;
+use Random\RandomException;
 use Traits\Validator;
 
 class UserController
 {
     use Validator;
 
-    public function get()
-    {
-        return 123;
-    }
-
+    /**
+     * @throws RandomException
+     */
     #[NoReturn] public function login(): void
     {
         $userData = $this->validate([
@@ -24,7 +23,8 @@ class UserController
         $user = new User();
         if($user->getUser($userData['name'], $userData['password'])){
             apiResponse([
-                'message' => 'User successfully logged in'
+                'message' => 'User successfully logged in',
+                'token' => $user->token,
             ]);
         }
         apiResponse([

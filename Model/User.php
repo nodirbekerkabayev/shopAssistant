@@ -3,10 +3,16 @@
 namespace Model;
 
 use Model\DB;
+use Random\RandomException;
+use Traits\HasApiToken;
 
 class User extends DB
 {
-    public function getUser(string $name, string $password): array
+    use HasApiToken;
+    /**
+     * @throws RandomException
+     */
+    public function getUser(string $name, string $password): ?array
     {
         $query = "SELECT * FROM `user` WHERE `name` = :name AND `password` = :password";
         $stmt = $this->pdo->prepare($query);
@@ -14,6 +20,11 @@ class User extends DB
             "name" => $name,
             "password" => $password
         ]);
-        return $stmt->fetchAll();
+        $user = $stmt->fetchAll();
+        if($user){
+            $this->createApiToken(1);
+            return $user;
+        }
+        return null;
     }
 }

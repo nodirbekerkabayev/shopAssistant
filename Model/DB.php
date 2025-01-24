@@ -20,7 +20,7 @@ class DB
         $this->database = $_ENV['DB_NAME'];
         $this->pdo = new PDO("mysql:host=$this->host;dbname=$this->database", $this->user, $this->password,
         [
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
         ]);
         return $this->pdo;
     }
