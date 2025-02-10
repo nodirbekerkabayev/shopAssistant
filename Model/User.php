@@ -27,4 +27,13 @@ class User extends DB
         }
         return null;
     }
+    public function getUserById(int $id): mixed
+    {
+        $query = "SELECT id, name, created_at FROM users WHERE id = :id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([
+            ':id' => $id,
+        ]);
+        return $stmt->fetch();
+    }
 }
