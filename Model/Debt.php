@@ -3,6 +3,7 @@
 namespace Model;
 
 use Model\DB;
+use PDO;
 
 class Debt extends DB
 {
@@ -18,5 +19,21 @@ class Debt extends DB
                 ':debtAmount' => $debtAmount
             ]
         );
+    }
+
+    public function find(): array
+    {
+        $query = 'SELECT id, klient_ismi, klient_haqida_malumot, qarz_miqdori FROM debts';
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function showByClientId(int $id)
+    {
+        $query = 'SELECT * FROM clients WHERE id = :id';
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

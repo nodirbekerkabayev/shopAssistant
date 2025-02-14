@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use JetBrains\PhpStorm\NoReturn;
 use Model\Debt;
 use Traits\Validator;
 
@@ -25,5 +26,31 @@ class DebtController
                 'message' => 'Debt added successfully'
             ]);
         }
+    }
+
+    #[NoReturn] public function getDebts()
+    {
+        $person = (new Debt())->find();
+        if ($person) {
+            apiResponse([
+                'data' => $person
+            ]);
+        }
+        apiResponse([
+            'message' => 'No Debts Found'
+        ]);
+    }
+
+    #[NoReturn] public function showDebtById(): void
+    {
+        $clientDebtInfo = (new Debt())->showByClientId($_POST['id']);
+        if ($clientDebtInfo) {
+            apiResponse([
+                'data' => $clientDebtInfo
+            ]);
+        }
+        apiResponse([
+            'message' => 'No Debts Found'
+        ]);
     }
 }
