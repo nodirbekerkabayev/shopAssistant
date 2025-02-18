@@ -23,7 +23,7 @@ class Debt extends DB
 
     public function find(): array
     {
-        $query = 'SELECT id, klient_ismi, klient_haqida_malumot, qarz_miqdori FROM debts';
+        $query = 'SELECT * FROM debts';
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

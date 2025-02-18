@@ -28,12 +28,12 @@ class DebtController
         }
     }
 
-    #[NoReturn] public function getDebts()
+    #[NoReturn] public function getDebts(): void
     {
-        $person = (new Debt())->find();
-        if ($person) {
+        $client = (new Debt())->find();
+        if ($client) {
             apiResponse([
-                'data' => $person
+                'clients' => $client
             ]);
         }
         apiResponse([
